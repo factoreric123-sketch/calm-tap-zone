@@ -31,7 +31,11 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
 
   const handleSave = () => {
     if (isNewMode) {
-      addMode({ name: name || 'New Mode', blockedApps, blockedWebsites: [] });
+      addMode({
+        name: name || 'New Mode',
+        blockedApps,
+        blockedWebsites: [],
+      });
     } else if (modeId) {
       updateMode(modeId, { name, blockedApps });
     }
@@ -45,59 +49,86 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
     }
   };
 
+  // Sample blocked apps for display
   const displayApps = blockedApps.length > 0 ? blockedApps : ['Instagram'];
 
   return (
-    <ModalSheet isOpen={isOpen} onClose={onClose} title={isNewMode ? 'Create Mode' : 'Edit Mode'} showBack onBack={onBack}>
-      <div className="bg-secondary rounded-full p-1 flex mb-6">
+    <ModalSheet 
+      isOpen={isOpen} 
+      onClose={onClose} 
+      title={isNewMode ? 'Create mode' : 'Edit mode'}
+      showBack
+      onBack={onBack}
+    >
+      {/* Block/Allow tabs */}
+      <div className="card-floating p-1 flex mb-6">
         <button
           onClick={() => setActiveTab('block')}
-          className={`flex-1 py-2 px-4 rounded-full text-sm font-semibold transition-all ${
-            activeTab === 'block' ? 'bg-card shadow-sm text-foreground' : 'text-muted-foreground'
+          className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium transition-colors ${
+            activeTab === 'block'
+              ? 'bg-card shadow-sm'
+              : 'text-muted-foreground'
           }`}
         >
           Block apps
         </button>
         <button
           onClick={() => setActiveTab('allow')}
-          className={`flex-1 py-2 px-4 rounded-full text-sm font-semibold transition-all ${
-            activeTab === 'allow' ? 'bg-card shadow-sm text-foreground' : 'text-muted-foreground'
+          className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium transition-colors ${
+            activeTab === 'allow'
+              ? 'bg-card shadow-sm'
+              : 'text-muted-foreground'
           }`}
         >
           Allow apps
         </button>
       </div>
 
-      <div className="card-floating p-5 mb-6 space-y-4">
+      <div className="card-floating p-4 mb-6 space-y-4">
+        {/* Mode name */}
         <div className="flex justify-between items-center pb-3 border-b border-border">
-          <span className="text-caption">Name</span>
+          <span className="text-muted-foreground">Name</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="text-right bg-transparent outline-none font-bold text-sm"
+            className="text-right bg-transparent outline-none font-medium"
             placeholder="Mode name"
           />
         </div>
+
+        {/* Blocking info */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-caption">Blocking</span>
-            <span className="text-accent font-semibold text-sm">{displayApps.length}/50</span>
+            <span className="text-muted-foreground">Blocking</span>
+            <span className="text-muted-foreground">{displayApps.length}/50</span>
           </div>
+          
+          {/* App icons */}
           <div className="flex gap-2 flex-wrap">
             {displayApps.slice(0, 5).map((app, idx) => (
-              <div key={idx} className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-                <span className="text-xs">📷</span>
+              <div
+                key={idx}
+                className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center"
+              >
+                <span className="text-white text-xs font-bold">📷</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <button onClick={handleSave} className="btn-brick w-full mb-3">Save</button>
+      {/* Save button */}
+      <button onClick={handleSave} className="btn-brick w-full mb-3">
+        Save mode settings
+      </button>
 
+      {/* Delete button */}
       {!isNewMode && modes.length > 1 && (
-        <button onClick={handleDelete} className="w-full text-center text-destructive font-semibold py-2 text-sm">
+        <button
+          onClick={handleDelete}
+          className="w-full text-center text-muted-foreground font-medium py-2"
+        >
           Delete Mode
         </button>
       )}

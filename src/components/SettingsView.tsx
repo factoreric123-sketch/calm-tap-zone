@@ -13,24 +13,34 @@ export function SettingsView() {
 
   return (
     <div className="min-h-[calc(100vh-120px)] px-6 pt-8 pb-32">
-      <h1 className="text-title mb-1">Settings</h1>
-      <p className="text-caption mb-6">Customize your Brick experience</p>
+      <h1 className="text-title mb-6">Settings</h1>
 
-      <div className="card-floating divide-y divide-border">
-        {settingsItems.map((item) => (
-          <button key={item.label} className="w-full p-4 flex items-center justify-between text-left">
-            <span className="font-medium text-sm">{item.label}</span>
+      <div className="card-floating overflow-hidden">
+        {settingsItems.map((item, index) => (
+          <button
+            key={item.label}
+            className={`w-full p-4 flex items-center justify-between text-left ${
+              index < settingsItems.length - 1 ? 'border-b border-border' : ''
+            }`}
+          >
+            <span className="font-medium">{item.label}</span>
             <div className="flex items-center gap-2">
-              {item.value && <span className="text-caption text-xs">{item.value}</span>}
-              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+              {item.value && (
+                <span className="text-muted-foreground text-sm">{item.value}</span>
+              )}
+              <ChevronRight className="w-5 h-5 text-muted-foreground" />
             </div>
           </button>
         ))}
       </div>
 
-      <div className="mt-10 text-center">
-        <p className="text-caption text-xs">Brick helps you reclaim your focus</p>
-        <p className="text-muted-foreground text-xs mt-1">© 2024 Brick Technologies</p>
+      <div className="mt-8 text-center">
+        <p className="text-muted-foreground text-sm">
+          Brick helps you reclaim your focus
+        </p>
+        <p className="text-muted-foreground text-xs mt-1">
+          © 2024 Brick Technologies
+        </p>
       </div>
     </div>
   );
