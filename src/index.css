@@ -4,93 +4,92 @@
 
 @layer base {
   :root {
-    /* Playful Lavender + Yellow Theme */
-    --background: 228 40% 92%;
-    --foreground: 230 25% 18%;
+    /* Clean Monochrome + Purple Accent */
+    --background: 0 0% 94%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 18%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 18%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 252 56% 62%;
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 228 35% 86%;
-    --secondary-foreground: 230 25% 25%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 25%;
 
-    --muted: 228 30% 88%;
-    --muted-foreground: 230 15% 50%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 45 95% 58%;
-    --accent-foreground: 35 60% 18%;
+    --accent: 258 58% 56%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 228 25% 85%;
-    --input: 228 25% 88%;
-    --ring: 252 56% 62%;
+    --border: 0 0% 88%;
+    --input: 0 0% 90%;
+    --ring: 258 58% 56%;
 
-    --radius: 1.25rem;
+    --radius: 1rem;
 
     /* Custom Brick colors */
-    --brick-cream: 228 40% 92%;
-    --brick-dark: 252 56% 62%;
-    --brick-charcoal: 230 25% 18%;
+    --brick-cream: 0 0% 94%;
+    --brick-dark: 0 0% 8%;
+    --brick-charcoal: 0 0% 15%;
     --brick-success: 145 55% 48%;
-    --brick-surface: 228 35% 95%;
-    
-    /* Shadows - soft and playful */
-    --shadow-neumorphic: 
-      6px 6px 16px hsl(228 30% 82%),
-      -6px -6px 16px hsl(0 0% 100%);
+    --brick-surface: 0 0% 96%;
+
+    /* Shadows - clean and minimal */
+    --shadow-neumorphic:
+      4px 4px 12px hsl(0 0% 85%),
+      -4px -4px 12px hsl(0 0% 100%);
     --shadow-neumorphic-inset:
-      inset 4px 4px 8px hsl(228 30% 82%),
-      inset -4px -4px 8px hsl(0 0% 100%);
+      inset 3px 3px 6px hsl(0 0% 85%),
+      inset -3px -3px 6px hsl(0 0% 100%);
     --shadow-card:
-      0 6px 28px -8px hsl(252 40% 60% / 0.18);
+      0 2px 16px -4px hsl(0 0% 0% / 0.08);
   }
 
   .dark, .bricked {
-    /* Dark Mode - Deep Purple */
-    --background: 240 20% 12%;
-    --foreground: 228 20% 90%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 92%;
 
-    --card: 240 18% 17%;
-    --card-foreground: 228 20% 90%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 92%;
 
-    --popover: 240 18% 17%;
-    --popover-foreground: 228 20% 90%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 92%;
 
-    --primary: 252 56% 65%;
-    --primary-foreground: 240 20% 10%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 240 14% 24%;
-    --secondary-foreground: 228 20% 85%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 80%;
 
-    --muted: 240 14% 26%;
-    --muted-foreground: 228 15% 55%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 45 90% 55%;
-    --accent-foreground: 35 60% 12%;
+    --accent: 258 58% 62%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 14% 24%;
-    --input: 240 14% 24%;
-    --ring: 252 56% 65%;
-    
-    --shadow-neumorphic: 
-      6px 6px 12px hsl(240 20% 7%),
-      -6px -6px 12px hsl(240 18% 20%);
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 258 58% 62%;
+
+    --shadow-neumorphic:
+      4px 4px 10px hsl(0 0% 4%),
+      -4px -4px 10px hsl(0 0% 18%);
     --shadow-neumorphic-inset:
-      inset 4px 4px 8px hsl(240 20% 7%),
-      inset -4px -4px 8px hsl(240 18% 20%);
+      inset 3px 3px 6px hsl(0 0% 4%),
+      inset -3px -3px 6px hsl(0 0% 18%);
     --shadow-card:
-      0 4px 20px -4px hsl(0 0% 0% / 0.4);
+      0 2px 12px -2px hsl(0 0% 0% / 0.4);
   }
 }
 
@@ -101,88 +100,93 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
 @layer components {
   /* Card with soft shadow */
   .card-neumorphic {
-    @apply bg-card rounded-3xl;
+    @apply bg-card rounded-2xl;
     box-shadow: var(--shadow-neumorphic);
   }
-  
+
   /* Floating card with subtle shadow */
   .card-floating {
-    @apply bg-card rounded-3xl;
+    @apply bg-card rounded-2xl;
     box-shadow: var(--shadow-card);
   }
-  
-  /* Main action button style - yellow accent pill */
+
+  /* Main action button - bold black pill */
   .btn-brick {
-    @apply bg-accent text-accent-foreground rounded-full px-8 py-4 font-extrabold text-base tracking-wide;
+    @apply bg-primary text-primary-foreground rounded-full px-8 py-4 font-bold text-sm tracking-wide uppercase;
     @apply transition-all duration-200 active:scale-95;
-    box-shadow: 0 6px 18px -4px hsl(var(--accent) / 0.45);
   }
-  
+
   /* Day selector button */
   .day-button {
-    @apply w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm;
+    @apply w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm;
     @apply transition-all duration-200;
   }
-  
+
   .day-button.selected {
     @apply bg-primary text-primary-foreground;
-    box-shadow: 0 3px 10px -2px hsl(var(--primary) / 0.4);
   }
-  
+
   .day-button:not(.selected) {
     @apply bg-secondary text-muted-foreground;
   }
-  
+
   /* Tab navigation */
   .tab-item {
     @apply flex flex-col items-center gap-1 py-2 px-4;
     @apply text-muted-foreground transition-all duration-200;
   }
-  
+
   .tab-item.active {
-    @apply text-primary font-bold;
+    @apply text-foreground font-bold;
   }
-  
+
   .tab-item.active::after {
     content: '';
-    @apply block w-1.5 h-1.5 rounded-full bg-primary mt-0.5;
+    @apply block w-1 h-1 rounded-full bg-accent mt-0.5;
   }
-  
+
   /* Time badge */
   .time-badge {
     @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full;
-    @apply bg-card text-foreground text-sm font-bold;
+    @apply bg-card text-foreground text-sm font-semibold;
     box-shadow: var(--shadow-card);
   }
-  
+
   /* Modal sheet */
   .modal-sheet {
-    @apply bg-card rounded-t-[2rem];
-    box-shadow: 0 -8px 40px -4px hsl(252 40% 40% / 0.15);
+    @apply bg-card rounded-t-3xl;
+    box-shadow: 0 -4px 30px -4px hsl(0 0% 0% / 0.1);
   }
 }
 
 @layer utilities {
   .text-display {
-    @apply text-5xl font-black tracking-tight;
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-5xl font-bold tracking-tight;
   }
-  
+
   .text-title {
-    @apply text-2xl font-extrabold;
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-2xl font-bold tracking-tight;
   }
-  
+
+  .text-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-lg font-bold uppercase tracking-wide;
+  }
+
   .text-body {
-    @apply text-base font-semibold;
+    @apply text-base font-medium;
   }
-  
+
   .text-caption {
-    @apply text-sm font-semibold text-muted-foreground;
+    @apply text-sm font-medium text-muted-foreground;
   }
 }
