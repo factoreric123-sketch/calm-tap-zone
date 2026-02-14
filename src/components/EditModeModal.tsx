@@ -109,7 +109,7 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
             {displayApps.slice(0, 5).map((app, idx) => (
               <div
                 key={idx}
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center"
+                className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center"
               >
                 <span className="text-white text-xs font-bold">📷</span>
               </div>
