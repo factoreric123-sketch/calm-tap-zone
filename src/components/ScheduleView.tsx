@@ -23,25 +23,26 @@ export function ScheduleView({ onEditSchedule, onCreateSchedule }: ScheduleViewP
 
   return (
     <div className="min-h-[calc(100vh-120px)] px-6 pt-8 pb-32">
-      <h1 className="text-title mb-6">Schedules</h1>
+      <h1 className="text-title mb-2">📅 Schedules</h1>
+      <p className="text-muted-foreground font-semibold text-sm mb-6">Automate your focus sessions</p>
 
       {/* Schedule list */}
       <div className="space-y-4 mb-8">
         {schedules.map((schedule) => (
           <div
             key={schedule.id}
-            className="card-floating p-4 flex items-center justify-between"
+            className="card-floating p-5 flex items-center justify-between"
           >
             <button
               onClick={() => onEditSchedule(schedule.id)}
               className="text-left flex-1"
             >
-              <h3 className="font-semibold text-lg">{schedule.name}</h3>
-              <p className="text-muted-foreground text-sm">
+              <h3 className="font-extrabold text-base">{schedule.name}</h3>
+              <p className="text-muted-foreground text-sm font-semibold">
                 {schedule.startTime} • {getDaysLabel(schedule.days)}
               </p>
-              <p className="text-muted-foreground text-sm">
-                Mode: {getModeName(schedule.modeId)}
+              <p className="text-primary text-sm font-bold">
+                {getModeName(schedule.modeId)}
               </p>
             </button>
             <Switch
@@ -54,12 +55,13 @@ export function ScheduleView({ onEditSchedule, onCreateSchedule }: ScheduleViewP
 
       {/* Create new schedule */}
       <div className="flex flex-col items-center gap-4">
-        <span className="text-muted-foreground">Create new schedule</span>
+        <span className="text-muted-foreground font-bold">Create new schedule</span>
         <button
           onClick={onCreateSchedule}
-          className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center shadow-neumorphic"
+          className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center"
+          style={{ boxShadow: '0 4px 14px -4px hsl(252 56% 62% / 0.5)' }}
         >
-          <Plus className="w-6 h-6" />
+          <Plus className="w-6 h-6" strokeWidth={2.5} />
         </button>
       </div>
     </div>

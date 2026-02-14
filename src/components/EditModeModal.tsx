@@ -61,12 +61,12 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
       onBack={onBack}
     >
       {/* Block/Allow tabs */}
-      <div className="card-floating p-1 flex mb-6">
+      <div className="bg-secondary rounded-full p-1 flex mb-6">
         <button
           onClick={() => setActiveTab('block')}
-          className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium transition-colors ${
+          className={`flex-1 py-2.5 px-4 rounded-full text-sm font-bold transition-all ${
             activeTab === 'block'
-              ? 'bg-card shadow-sm'
+              ? 'bg-card shadow-sm text-foreground'
               : 'text-muted-foreground'
           }`}
         >
@@ -74,9 +74,9 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
         </button>
         <button
           onClick={() => setActiveTab('allow')}
-          className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium transition-colors ${
+          className={`flex-1 py-2.5 px-4 rounded-full text-sm font-bold transition-all ${
             activeTab === 'allow'
-              ? 'bg-card shadow-sm'
+              ? 'bg-card shadow-sm text-foreground'
               : 'text-muted-foreground'
           }`}
         >
@@ -84,15 +84,15 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
         </button>
       </div>
 
-      <div className="card-floating p-4 mb-6 space-y-4">
+      <div className="card-floating p-5 mb-6 space-y-4">
         {/* Mode name */}
         <div className="flex justify-between items-center pb-3 border-b border-border">
-          <span className="text-muted-foreground">Name</span>
+          <span className="text-muted-foreground font-bold">Name</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="text-right bg-transparent outline-none font-medium"
+            className="text-right bg-transparent outline-none font-extrabold"
             placeholder="Mode name"
           />
         </div>
@@ -100,8 +100,8 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
         {/* Blocking info */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-muted-foreground">Blocking</span>
-            <span className="text-muted-foreground">{displayApps.length}/50</span>
+            <span className="text-muted-foreground font-bold">Blocking</span>
+            <span className="text-primary font-bold">{displayApps.length}/50</span>
           </div>
           
           {/* App icons */}
@@ -109,9 +109,9 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
             {displayApps.slice(0, 5).map((app, idx) => (
               <div
                 key={idx}
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center"
+                className="w-11 h-11 rounded-2xl bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center"
               >
-                <span className="text-white text-xs font-bold">📷</span>
+                <span className="text-primary-foreground text-xs font-bold">📷</span>
               </div>
             ))}
           </div>
@@ -127,7 +127,7 @@ export function EditModeModal({ isOpen, onClose, modeId, onBack }: EditModeModal
       {!isNewMode && modes.length > 1 && (
         <button
           onClick={handleDelete}
-          className="w-full text-center text-muted-foreground font-medium py-2"
+          className="w-full text-center text-destructive font-bold py-2"
         >
           Delete Mode
         </button>
