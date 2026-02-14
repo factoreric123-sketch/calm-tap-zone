@@ -172,7 +172,7 @@ export function BrickView({ onModeSelect }: BrickViewProps) {
           {isNfcSupported ? (
             isNfcEnabled ? (
               <p className="text-muted-foreground text-sm flex items-center gap-2 justify-center">
-                <span className="w-2 h-2 rounded-full bg-green-500" />
+                <span className="w-2 h-2 rounded-full bg-brick-success" />
                 NFC ready
               </p>
             ) : (

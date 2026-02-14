@@ -86,7 +86,7 @@ export function ActivityView() {
       {/* Today card */}
       <div className="card-floating p-4 mb-3">
         <div className="flex items-center gap-2 mb-1">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-brick-success" />
           <span className="text-xs text-muted-foreground uppercase">Today</span>
         </div>
         <div className="flex items-center justify-between">
