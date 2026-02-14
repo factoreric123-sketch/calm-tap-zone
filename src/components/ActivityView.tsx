@@ -19,92 +19,88 @@ export function ActivityView() {
     <div className="min-h-[calc(100vh-120px)] px-6 pt-6 pb-32">
       {/* Header */}
       <button className="flex items-center gap-2 mx-auto mb-2">
-        <span className="text-lg font-semibold">Weekly Activity</span>
-        <ChevronDown className="w-5 h-5" />
+        <span className="text-lg font-extrabold">📊 Weekly Activity</span>
+        <ChevronDown className="w-5 h-5 text-primary" />
       </button>
-      <p className="text-center text-muted-foreground text-sm uppercase tracking-wide mb-6">
+      <p className="text-center text-muted-foreground text-sm uppercase tracking-wider font-bold mb-6">
         This Week
       </p>
 
       {/* Stats */}
-      <div className="mb-4">
-        <p className="text-muted-foreground text-sm">Avg Brick Time</p>
-        <h1 className="text-display">10h 19m</h1>
-        <p className="text-muted-foreground flex items-center gap-1">
+      <div className="card-floating p-5 mb-6">
+        <p className="text-muted-foreground text-sm font-bold">Avg Brick Time</p>
+        <h1 className="text-display text-primary">10h 19m</h1>
+        <p className="text-muted-foreground flex items-center gap-1 font-semibold">
           <span className="text-lg">↘</span> 19% from last week
         </p>
       </div>
 
       {/* Chart */}
-      <div className="h-48 mb-6">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={weeklyData} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
-            <XAxis 
-              dataKey="day" 
-              axisLine={false} 
-              tickLine={false}
-              tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
-            />
-            <ReferenceLine 
-              y={avgHours} 
-              stroke="hsl(var(--muted-foreground))" 
-              strokeDasharray="4 4"
-              label={{ 
-                value: 'AVG', 
-                position: 'right',
-                fill: 'hsl(var(--foreground))',
-                fontSize: 11,
-                fontWeight: 600,
-                dx: 30
-              }}
-            />
-            <Bar 
-              dataKey="hours" 
-              fill="hsl(var(--primary))" 
-              radius={[4, 4, 0, 0]}
-              maxBarSize={32}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-        
-        {/* Date labels */}
-        <div className="flex justify-between px-4 -mt-1">
-          {weeklyData.map((d) => (
-            <span key={d.day} className="text-xs text-muted-foreground w-8 text-center">
-              {d.date}
-            </span>
-          ))}
+      <div className="card-floating p-4 mb-6">
+        <div className="h-48">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={weeklyData} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
+              <XAxis 
+                dataKey="day" 
+                axisLine={false} 
+                tickLine={false}
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11, fontWeight: 700 }}
+              />
+              <ReferenceLine 
+                y={avgHours} 
+                stroke="hsl(var(--muted-foreground))" 
+                strokeDasharray="4 4"
+                label={{ 
+                  value: 'AVG', 
+                  position: 'right',
+                  fill: 'hsl(var(--foreground))',
+                  fontSize: 11,
+                  fontWeight: 800,
+                  dx: 30
+                }}
+              />
+              <Bar 
+                dataKey="hours" 
+                fill="hsl(var(--primary))" 
+                radius={[8, 8, 0, 0]}
+                maxBarSize={28}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          
+          {/* Date labels */}
+          <div className="flex justify-between px-4 -mt-1">
+            {weeklyData.map((d) => (
+              <span key={d.day} className="text-xs text-muted-foreground w-8 text-center font-bold">
+                {d.date}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Y-axis labels */}
-      <div className="flex justify-end gap-4 text-xs text-muted-foreground mb-4">
-        <span>18h</span>
-        <span>9h</span>
       </div>
 
       {/* Today card */}
-      <div className="card-floating p-4 mb-3">
+      <div className="card-floating p-5 mb-3">
         <div className="flex items-center gap-2 mb-1">
-          <div className="w-2 h-2 rounded-full bg-brick-success" />
-          <span className="text-xs text-muted-foreground uppercase">Today</span>
+          <div className="w-2.5 h-2.5 rounded-full bg-brick-success" />
+          <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider">Today</span>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-2xl font-bold">0h 0m</span>
-            <p className="text-sm text-muted-foreground">1 session</p>
+            <span className="text-2xl font-black">0h 0m</span>
+            <p className="text-sm text-muted-foreground font-semibold">1 session</p>
           </div>
           <div className="flex-1 mx-4">
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <div className="h-full bg-primary/40 w-1/3 rounded-full" />
+            <div className="h-2.5 bg-secondary rounded-full overflow-hidden">
+              <div className="h-full bg-primary/50 w-1/3 rounded-full" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Previous day */}
-      <div className="card-floating p-4 opacity-60">
-        <span className="text-sm text-muted-foreground">TUE, JAN 27</span>
+      <div className="card-floating p-5 opacity-60">
+        <span className="text-sm text-muted-foreground font-bold">TUE, JAN 27</span>
       </div>
     </div>
   );
